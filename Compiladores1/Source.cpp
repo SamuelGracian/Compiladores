@@ -9,7 +9,8 @@ int main()
 	
 	std::cout << fB.GetAsString() << std::endl;
 
-	Parser::Tokenize(fB.GetAsString(), ".exe");
+	auto Tokens = Parser::Tokenize(fB.GetAsString(), ".exe");
+	Tokens.size();
 
 	return 0;
 }
