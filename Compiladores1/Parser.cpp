@@ -18,15 +18,22 @@ TokenArray Parser::Tokenize(const string src, const string separator)
         return RetVal;
 }
 
-void Parser::AddToken(string  Value)
+void Parser::AddToken(string Value)
 {
     string type;
-
-    if (isOperator(Value))
-    {
+    if (isOperator(Value)) {
         type = "Operator";
     }
-	m_tokens.emplace_back(Tokens(type, Value));
+    else if (isdigit(Value[0])) {
+        type = "Number";
+    }
+    else if (isalpha(Value[0])) {
+        type = "Identifier";
+    }
+    else {
+        type = "Unknown";
+    }
+    m_tokens.emplace_back(Tokens(type, Value));
 }
 
 bool Parser::isOperator(string& Token)
