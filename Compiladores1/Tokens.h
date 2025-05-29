@@ -6,13 +6,12 @@ using std::string;
 class Tokens
 {
 public:
-	Tokens(string& Type, string& Value)
-		: m_type(Type), m_value(Value) {}
+    Tokens(const string& Type, const string& Value)
+        : m_type(Type), m_value(Value) {
+    }
 
-private:
-
-	string m_type;
-
-	string m_value;
+    string m_type;
+    string m_value;
 };
+
 

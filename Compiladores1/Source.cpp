@@ -11,9 +11,11 @@ int main()
 	
 	std::cout << fB.GetAsString() << std::endl;
 
-	auto Tokens = parser.Tokenize(fB.GetAsString(), "exe");
+	//auto Tokens = parser.Tokenize(fB.GetAsString(), "exe");
 
-	Tokens.size();
+	parser.Parse(fB.GetAsString(), " ");
+
+	//Tokens.size();
 
 	return 0;
 }
