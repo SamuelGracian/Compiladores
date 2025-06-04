@@ -15,6 +15,8 @@ int main()
 
 	parser.Parse(fB.GetAsString(), " ");
 
+	parser.PrintTokens();
+
 	//Tokens.size();
 
 	return 0;

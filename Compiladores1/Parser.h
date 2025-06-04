@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include <iostream>
 
 using std::vector;
 using TokenArray = vector<string>;
@@ -13,17 +14,20 @@ class Parser
 public: 
 	Parser() = default;
 
-	 TokenArray Tokenize(const string src, const string separator);
+	 TokenArray Tokenize (const string src);
 
 	 void Parse(const string& src, const string& seprator);
+
+	 void PrintTokens() const;
+
 private:
+
 	 void AddToken(string Value);
 
-	 bool isOperator(string& Token);
+	 string Trim(const string& str) const ;
 
-	 string Trim(string& str) const ;
+	 bool IsValid( char Char) const ;
 
-	 bool IsValid(const char& Char) const ;
 	
 	 //Token container
 	vector <Tokens> m_tokens;
