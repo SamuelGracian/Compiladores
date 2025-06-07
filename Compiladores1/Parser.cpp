@@ -1,6 +1,5 @@
 #include "Parser.h"
 
-const string Parser::m_operators[] = { "+","-","*","/" };
 
 TokenArray Parser::Tokenize(const string src)
 {
@@ -84,6 +83,17 @@ string Parser::Trim(const string& str) const
 bool Parser::IsValid(char c) const
 {
     return (c != ' ' && c != '\n'  && c != '\r\n' && c != '\r');
+}
+
+bool Parser::IsOperator(const string& str) const
+{
+	for (const auto& op : m_operators)
+    {
+		if (str == op) {
+			return true;
+		}
+	}
+	return false;
 }
 
 void Parser::Parse(const string& src, const string& separator)

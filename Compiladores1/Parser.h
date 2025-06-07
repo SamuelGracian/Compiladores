@@ -28,10 +28,14 @@ private:
 
 	 bool IsValid( char Char) const ;
 
+	 bool IsOperator(const string& str) const;
+
 	
 	 //Token container
 	vector <Tokens> m_tokens;
 
-	static const string m_operators[];
+	static const string m_operators[7];
+
 };
 
+const string m_operators[] = { "+", "-", "*", "/", "=", "(", ")"};
