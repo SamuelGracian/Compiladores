@@ -13,5 +13,3 @@ public:
     string m_type;
     string m_value;
 };
-
-
