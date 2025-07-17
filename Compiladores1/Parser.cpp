@@ -1,4 +1,3 @@
-
 #include "Parser.h"
 
 TokenArray Parser::Tokenize(const string& src)
@@ -80,6 +79,23 @@ void Parser::Parse(const string& src, const string& /*unused*/)
             AddToken(trimmed);
         }
     }
+}
+
+void Parser::VariableDeclaration(const std::string& name, const std::string& value)
+{
+    Node* varNode = new Node();
+
+    auto* tokenVar = new TokenVariable<std::string>();
+
+    tokenVar->name = name;
+
+    tokenVar->value = value;
+
+    varNode->m_object = tokenVar;
+
+    CurrentNode->m_symbolTable.Addvariable(name, value);
+
+    CurrentNode->m_nodeList.push_back(varNode);
 }
 
 string Parser::Trim(const string& str) const

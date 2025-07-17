@@ -2,6 +2,7 @@
 
 #include "FileBuffer.h"
 #include "Parser.h"
+#include "Node.cpp"
 
 int main()
 {
@@ -9,7 +10,8 @@ int main()
 	Parser parser;
 
 	FileBuffer fB("SourceCode.txt");
-
+	
+	Node node;
 
 	double Result = 0;
 	
@@ -22,6 +24,10 @@ int main()
 	parser.PrintTokens();
 
 	Result = parser.Evaluate();
+
+	TokenVariable <double> token;
+	
+	token.SetValue(Result);
 
 	std::cout << "Resultado de la ecuacion: " << Result << std::endl;
 
